@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trident-cli"
+dynamic = ["version"]
+description = "Local command-line journal and planning tool for the Trident method."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+trident = "trident_cli.__main__:run"
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.dynamic]
+version = { attr = "trident_cli.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["trident_cli*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
